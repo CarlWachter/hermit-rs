@@ -3,6 +3,9 @@ name: CI
 on:
   pull_request:
   merge_group:
+  push:
+    branches:
+      - test
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -117,3 +120,42 @@ jobs:
         if: matrix.arch != 'riscv64'
       - run: UHYVE=$CARGO_HOME/bin/uhyve cargo xtask ci rs --arch ${{ matrix.arch }} --profile ${{ matrix.profile }} --package rusty_demo uhyve --sudo
         if: matrix.arch == 'x86_64'
+
+  benchmark:
+    name: Bench
+    runs-on: [self-hosted]
+    steps:
+    - name: Install QEMU
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qemu-kvm
+    - uses: actions/checkout@v4
+      with:
+         submodules: true
+    - uses: mkroening/rust-toolchain-toml@main
+    - name: Download loader  
+      run: gh release download --repo hermit-os/loader --pattern hermit-loader-x86_64
+    - name: Install uhyve
+      run: cargo +stable install --locked uhyve
+    - name: Check KVM availability
+      shell: bash
+      run: |
+         lscpu
+         kvm-ok
+    - name: Run benchmarks
+      uses: CarlWachter/hermit-bench@main
+      with: 
+        benchmark-file: /benches/bench.json
+        build-command: "HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --release"
+    - name: Store benchmark result
+      uses: CarlWachter/github-action-benchmark@v1
+      with:
+        # What benchmark tool the output.txt came from
+        tool: 'customSmallerIsBetter'
+        # Where the output from the benchmark tool is stored
+        output-file-path: results.json
+        # Where the previous data file is stored
+        #external-data-json-path: ./cache/benchmark-data.json
+        # Publish to Pages on
+        github-token: ${{ secrets.PAGES_TOKEN }}
+        auto-push: true
