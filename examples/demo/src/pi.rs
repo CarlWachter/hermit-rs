@@ -17,8 +17,8 @@ pub enum Mode {
 }
 
 fn calculate_pi(mode: Mode) {
-	eprintln!();
-	eprint!("Calculating Pi {:14}", format!("({mode:?}): "));
+	//eprintln!();
+	//eprint!("Calculating Pi {:14}", format!("({mode:?}): "));
 
 	let steps = hint::black_box(STEPS);
 	let map_step = |i| {
@@ -34,13 +34,18 @@ fn calculate_pi(mode: Mode) {
 	let mypi = sum * STEP_SIZE;
 	let elapsed = now.elapsed();
 
-	eprintln!("{elapsed:?}");
+	//eprintln!("{elapsed:?}");
+
+	eprintln!("name: Pi-Calculation-{mode:?}");
+	eprintln!("unit: ms");
+	eprintln!("value: {}", elapsed.as_millis());
+	eprintln!("---");
 
 	assert!((mypi - f64::consts::PI).abs() < 1e-10);
 }
 
 pub fn pi() {
-	eprintln!();
+	//eprintln!();
 	calculate_pi(Mode::Sequential);
 	calculate_pi(Mode::Parallel);
 }

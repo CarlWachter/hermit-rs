@@ -10,12 +10,12 @@ mod pi;
 mod thread;
 
 fn main() -> io::Result<()> {
-	hello();
-	print_env();
-	arithmetic();
+	//hello();
+	//print_env();
+	//arithmetic();
 	thread::sleep();
-	thread::spawn()?;
-	fs::fs()?;
+	//thread::spawn()?;
+	//fs::fs()?;
 	pi::pi();
 	matmul::matmul();
 	laplace::laplace();

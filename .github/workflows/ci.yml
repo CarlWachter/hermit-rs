@@ -28,7 +28,7 @@ jobs:
     - name: Download loader  
       run: gh release download --repo hermit-os/loader --pattern hermit-loader-x86_64
     - name: Build dev profile
-      run: cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo
+      run: HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo
     - name: Install uhyve
       run: cargo +stable install --locked uhyve
     - name: Check KVM availability
@@ -36,25 +36,29 @@ jobs:
       run: |
          lscpu
          kvm-ok
-    #- name: Test debug version (Uhyve)
-    #  run: uhyve --verbose -c 1 target/x86_64-unknown-hermit/debug/rusty_demo
-    #  env:
-    #    RUST_LOG: debug
-    - name: Test debug profile (Qemu)
-      run: |
-        qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-          -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-          -kernel hermit-loader-x86_64 \
-          -initrd target/x86_64-unknown-hermit/debug/rusty_demo
-    - name: Build release profile
-      run: cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo --release
-    #- name: Test release version (Uhyve)
-    #  run: uhyve --verbose -c 1 target/x86_64-unknown-hermit/release/rusty_demo
-    #  env:
-    #    RUST_LOG: debug
-    - name: Test release profile (Qemu)
-      run: |
-        qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-          -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-          -kernel hermit-loader-x86_64 \
-          -initrd target/x86_64-unknown-hermit/release/rusty_demo
+    - name: Run benchmarks
+      uses: CarlWachter/hermit-bench@main
+      with: 
+        benchmark-file: /benches/bench.json
+    - name: Download previous benchmark data
+      uses: actions/cache@v4
+      with:
+        path: ./cache
+        key: ${{ runner.os }}-benchmark
+    - name: Store benchmark result
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        # What benchmark tool the output.txt came from
+        tool: 'customSmallerIsBetter'
+        # Where the output from the benchmark tool is stored
+        output-file-path: results.json
+        # Where the previous data file is stored
+        #external-data-json-path: ./cache/benchmark-data.json
+        # Publish to Pages on
+        github-token: ${{ secrets.PAGES_TOKEN }}
+        auto-push: true
+    - name: Upload benchmark data to cache
+      uses: actions/cache/save@v4
+      with:
+        path: ./cache
+        key: ${{ runner.os }}-benchmark

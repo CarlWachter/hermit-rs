@@ -1,16 +1,17 @@
-use std::cell::Cell;
+//use std::cell::Cell;
 use std::time::{Duration, Instant};
-use std::{io, thread};
+//use std::{io, thread};
+use std::thread;
 
 pub fn sleep() {
-	eprintln!();
+	//eprintln!();
 	let duration = Duration::from_millis(100);
 
 	let now = Instant::now();
 	thread::sleep(duration);
 	let elapsed = now.elapsed();
 
-	eprintln!("Measured time for {duration:?} sleep: {elapsed:?}");
+	//eprintln!("Measured time for {duration:?} sleep: {elapsed:?}");
 	assert!(elapsed >= duration);
 	let expected_delay = if cfg!(debug_assertions) {
 		Duration::from_millis(20)
@@ -18,9 +19,14 @@ pub fn sleep() {
 		Duration::from_millis(5)
 	};
 	assert!(elapsed <= duration + expected_delay);
+
+	eprintln!("name: Sleep-Timing");
+	eprintln!("unit: ms");
+	eprintln!("value: {}", duration.as_millis());
+	eprintln!("---");
 }
 
-pub fn spawn() -> io::Result<()> {
+/*pub fn spawn() -> io::Result<()> {
 	eprintln!();
 
 	let available_parallelism = thread::available_parallelism()?;
@@ -61,3 +67,4 @@ pub fn spawn() -> io::Result<()> {
 
 	Ok(())
 }
+*/

@@ -6,15 +6,20 @@ use rayon::prelude::*;
 const SIZE: usize = if cfg!(debug_assertions) { 16 } else { 64 };
 
 pub fn laplace() {
-	eprintln!();
+	//eprintln!();
 
 	let matrix = matrix_setup(SIZE, SIZE);
 
-	eprintln!("Laplace iterations");
+	//eprintln!("Laplace iterations");
 	let now = Instant::now();
-	let (i, residual) = compute(matrix, SIZE, SIZE);
+	let (_i, residual) = compute(matrix, SIZE, SIZE);
 	let elapsed = now.elapsed();
-	eprintln!("{i} iterations: {elapsed:?} (residual: {residual})");
+
+	eprintln!("name: Laplace 1000 Iterations");
+	eprintln!("unit: ms");
+	eprintln!("value: {}", elapsed.as_millis());
+	eprintln!("---");
+	//eprintln!("{i} iterations: {elapsed:?} (residual: {residual})");
 
 	assert!(residual < 0.001);
 }
