@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718810318673,
+  "lastUpdate": 1718810774176,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -206,6 +206,75 @@ window.BENCHMARK_DATA = {
           {
             "name": "Laplace 1000 Iterations",
             "value": 85,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "77f91031fba5b8ee94c6ab920437762da416b1d6",
+          "message": "Performance Test",
+          "timestamp": "2024-06-19T17:17:24+02:00",
+          "tree_id": "4cfa4c29efb4f91057eb89e28474c4660b48417d",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/77f91031fba5b8ee94c6ab920437762da416b1d6"
+        },
+        "date": 1718810773304,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 0,
+            "unit": "ms"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 3,
+            "unit": "ms"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 10177000,
+            "unit": "ns"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 9407000,
+            "unit": "ns"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 10027000,
+            "unit": "ns"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 9269000,
+            "unit": "ns"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.9381669492370599,
+            "unit": "x"
+          },
+          {
+            "name": "Laplace 1000 Iterations",
+            "value": 86,
             "unit": "ms"
           }
         ]
