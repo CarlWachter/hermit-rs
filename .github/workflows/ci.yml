@@ -76,6 +76,7 @@ jobs:
         output-file-path: results.json
         # Where the previous data file is stored
         external-data-json-path: ./cache/benchmark-data.json
+        auto-push: true
     - name: Upload benchmark data to cache
       uses: actions/cache/save@v4
       with:
