@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718961478925,
+  "lastUpdate": 1718975284125,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -556,6 +556,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "startup",
             "value": 0.389694962,
+            "unit": "s"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "74b3a2b9eecd0aa44028a912100b211ffa19e084",
+          "message": "feat(format): Output via hermit_bench_output",
+          "timestamp": "2024-06-21T15:06:04+02:00",
+          "tree_id": "ed6466effe40ad771373b977ed5a686077c439f3",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/74b3a2b9eecd0aa44028a912100b211ffa19e084"
+        },
+        "date": 1718975283190,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "startup",
+            "value": 0.329013742,
             "unit": "s"
           }
         ]
