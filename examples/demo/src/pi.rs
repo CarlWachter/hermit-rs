@@ -10,6 +10,8 @@ const STEPS: u64 = if cfg!(debug_assertions) {
 };
 const STEP_SIZE: f64 = 1.0 / STEPS as f64;
 
+use hermit_bench_output::log_benchmark_data;
+
 #[derive(Debug)]
 pub enum Mode {
 	Sequential,
@@ -36,10 +38,7 @@ fn calculate_pi(mode: Mode) {
 
 	//eprintln!("{elapsed:?}");
 
-	eprintln!("name: Pi-Calculation-{mode:?}");
-	eprintln!("unit: ms");
-	eprintln!("value: {}", elapsed.as_millis());
-	eprintln!("---");
+	log_benchmark_data(&format!("Pi-Calculation-{mode:?}"), "ms", elapsed.as_millis() as f64);
 
 	assert!((mypi - f64::consts::PI).abs() < 1e-10);
 }

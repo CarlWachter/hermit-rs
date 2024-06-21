@@ -2,6 +2,7 @@
 use std::time::{Duration, Instant};
 //use std::{io, thread};
 use std::thread;
+use hermit_bench_output::log_benchmark_data;
 
 pub fn sleep() {
 	//eprintln!();
@@ -20,11 +21,7 @@ pub fn sleep() {
 	};
 	assert!(elapsed <= duration + expected_delay);
 
-	eprintln!("---");
-	eprintln!("name: Sleep-Timing");
-	eprintln!("unit: ms");
-	eprintln!("value: {}", duration.as_millis());
-	eprintln!("---");
+	log_benchmark_data("Sleep-Timing", "ms", elapsed.as_millis() as f64);
 }
 
 /*pub fn spawn() -> io::Result<()> {

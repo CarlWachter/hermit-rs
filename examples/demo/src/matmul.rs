@@ -6,6 +6,8 @@ use std::time::Instant;
 
 use rayon::prelude::*;
 
+use hermit_bench_output::log_benchmark_data;
+
 // TODO: Investigate other cache patterns for row-major order that may be more
 // parallelizable.
 // https://tavianator.com/a-quick-trick-for-faster-naive-matrix-multiplication/
@@ -380,10 +382,7 @@ fn timed_matmul<F: FnOnce(&[f32], &[f32], &mut [f32])>(size: usize, f: F, name: 
 	//	nanos as f32 / 1e9f32
 	//);
 
-	eprintln!("name: Matmul-{}", name);
-	eprintln!("unit: ns");
-	eprintln!("value: {}", nanos);
-	eprintln!("---");
+	log_benchmark_data(&format!("Matmul-{name}"), "ns", nanos as f64);
 
 	nanos
 }
@@ -407,8 +406,5 @@ pub fn matmul() {
 	let speedup = seq as f64 / par as f64;
 	//eprintln!("speedup: {:.2}x", speedup);
 
-	eprintln!("name: Matmul-Speedup");
-	eprintln!("unit: x");
-	eprintln!("value: {}", speedup);
-	eprintln!("---");
+	log_benchmark_data("Matmul-Speedup", "x", speedup);
 }
