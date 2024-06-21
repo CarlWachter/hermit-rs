@@ -20,6 +20,7 @@ pub fn sleep() {
 	};
 	assert!(elapsed <= duration + expected_delay);
 
+	eprintln!("---");
 	eprintln!("name: Sleep-Timing");
 	eprintln!("unit: ms");
 	eprintln!("value: {}", duration.as_millis());

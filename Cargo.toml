@@ -22,7 +22,8 @@ members = [
     "examples/fibonacci",
     "examples/wasmtime",
     "hermit",
-    "hermit-abi",
+    "hermit-abi", 
+    "benches/startup",
 ]
 
 [patch.crates-io]
