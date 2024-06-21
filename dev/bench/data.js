@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718975284125,
+  "lastUpdate": 1718976643212,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -585,6 +585,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "startup",
             "value": 0.329013742,
+            "unit": "s"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "86de9771edceb5577aeb8a07ca4f1af39eba777e",
+          "message": "feat(format): Output via hermit_bench_output",
+          "timestamp": "2024-06-21T15:28:36+02:00",
+          "tree_id": "79074b157495f2abebfa81c58cfbd4c86caea952",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/86de9771edceb5577aeb8a07ca4f1af39eba777e"
+        },
+        "date": 1718976642208,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.6504221793763713,
+            "unit": "x"
+          },
+          {
+            "name": "startup",
+            "value": 0.397820927,
             "unit": "s"
           }
         ]
