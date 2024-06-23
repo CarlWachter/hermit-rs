@@ -41,7 +41,7 @@ jobs:
       with: 
         benchmark-file: /benches/bench.json
     - name: Store benchmark result
-      uses: CarlWachter/github-action-benchmark@master
+      uses: CarlWachter/github-action-benchmark@v1
       with:
         # What benchmark tool the output.txt came from
         tool: 'customSmallerIsBetter'
