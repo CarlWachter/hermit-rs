@@ -261,8 +261,19 @@
             tabContent.classList.add('active');
           }
 
+          // Create a Set to keep track of rendered names
+          const renderedNames = new Set();
+
+          // Iterate over groupData array
           groupData.forEach(({ name, benches }) => {
-            renderGraph(tabContent, name, benches);
+            // Check if the name has already been rendered
+            if (!renderedNames.has(name)) {
+              // Render the graph for this name
+              renderGraph(tabContent, name, benches);
+
+              // Add the name to the set of rendered names
+              renderedNames.add(name);
+            }
           });
         });
       }
