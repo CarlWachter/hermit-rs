@@ -40,13 +40,8 @@ jobs:
       uses: CarlWachter/hermit-bench@main
       with: 
         benchmark-file: /benches/bench.json
-    - name: Download previous benchmark data
-      uses: actions/cache@v4
-      with:
-        path: ./cache
-        key: ${{ runner.os }}-benchmark
     - name: Store benchmark result
-      uses: benchmark-action/github-action-benchmark@v1
+      uses: CarlWachter/github-action-benchmark@master
       with:
         # What benchmark tool the output.txt came from
         tool: 'customSmallerIsBetter'
@@ -57,8 +52,3 @@ jobs:
         # Publish to Pages on
         github-token: ${{ secrets.PAGES_TOKEN }}
         auto-push: true
-    - name: Upload benchmark data to cache
-      uses: actions/cache/save@v4
-      with:
-        path: ./cache
-        key: ${{ runner.os }}-benchmark
