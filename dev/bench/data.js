@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719300882478,
+  "lastUpdate": 1719301711595,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -997,6 +997,156 @@ window.BENCHMARK_DATA = {
           {
             "name": "Average Deallocation time",
             "value": 242156.24741526568,
+            "unit": "Ticks",
+            "range": 0,
+            "group": "Allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "6fb1ac045f1b0297910740ee7aba459156142271",
+          "message": "bench(alloc): size and alloc tests",
+          "timestamp": "2024-06-25T09:31:16+02:00",
+          "tree_id": "65802a2a3ab9bb9dbff5cf087cd3a66fb4cf2899",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/6fb1ac045f1b0297910740ee7aba459156142271"
+        },
+        "date": 1719301710849,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 1,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 5,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 19589750,
+            "unit": "ns",
+            "range": 127.82449127208986,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 18242500,
+            "unit": "ns",
+            "range": 44.311942030091224,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 19185250,
+            "unit": "ns",
+            "range": 88.93700333143707,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 17939500,
+            "unit": "ns",
+            "range": 38.745153041071354,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.9508650257507797,
+            "unit": "x",
+            "range": 0.23003716429001472,
+            "group": "Demo"
+          },
+          {
+            "name": "Laplace 1000 Iterations",
+            "value": 203.75,
+            "unit": "ms",
+            "range": 0.5707532025282047,
+            "group": "Demo"
+          },
+          {
+            "name": "startup",
+            "value": 0.6330561878000001,
+            "unit": "s",
+            "range": 0.034510285152993044,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 37547536,
+            "unit": "bytes",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size alloc_benchmarks",
+            "value": 31230464,
+            "unit": "bytes",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Allocation success",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations"
+          },
+          {
+            "name": "Deallocation success",
+            "value": 67.86592361907884,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations"
+          },
+          {
+            "name": "Pre-fail Allocations",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations"
+          },
+          {
+            "name": "Average Allocation time",
+            "value": 340369.33986231766,
+            "unit": "Ticks",
+            "range": 0,
+            "group": "Allocations"
+          },
+          {
+            "name": "Average Allocation time (no fail)",
+            "value": 340369.33986231766,
+            "unit": "Ticks",
+            "range": 0,
+            "group": "Allocations"
+          },
+          {
+            "name": "Average Deallocation time",
+            "value": 281914.36432797974,
             "unit": "Ticks",
             "range": 0,
             "group": "Allocations"
