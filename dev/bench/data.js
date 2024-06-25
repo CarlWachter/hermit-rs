@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719315272452,
+  "lastUpdate": 1719320173889,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -1464,6 +1464,65 @@ window.BENCHMARK_DATA = {
             "unit": "Ticks",
             "range": 0,
             "group": "Allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "503426d2d1cf0244ffc12850883ebcf5a2a2f9bc",
+          "message": "bench(micro): mem speed and scheduler benches",
+          "timestamp": "2024-06-25T14:52:50+02:00",
+          "tree_id": "b0a498d1f443824ca48e9ebeb7a9a038f064dd94",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/503426d2d1cf0244ffc12850883ebcf5a2a2f9bc"
+        },
+        "date": 1719320173128,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 133.482839121,
+            "unit": "s",
+            "range": 0,
+            "group": "General"
+          },
+          {
+            "name": "startup",
+            "value": 0.061781632999999996,
+            "unit": "s",
+            "range": 0.0019437977114623829,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 35.80812072753906,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size alloc_benchmarks",
+            "value": 29.78369140625,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size micro_benchmarks",
+            "value": 29.773696899414062,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
           }
         ]
       }
