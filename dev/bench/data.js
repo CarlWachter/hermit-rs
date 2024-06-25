@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719320173889,
+  "lastUpdate": 1719321495843,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -1520,6 +1520,58 @@ window.BENCHMARK_DATA = {
           {
             "name": "Size micro_benchmarks",
             "value": 29.773696899414062,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "d81cb1499d9e79ff30cf49adb3646a45cbba5874",
+          "message": "feat(bench): build in bench",
+          "timestamp": "2024-06-25T12:24:20+02:00",
+          "tree_id": "f836ab0bf21499cc57e26555d492d75fadb2d4eb",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/d81cb1499d9e79ff30cf49adb3646a45cbba5874"
+        },
+        "date": 1719321494751,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 134.431365436,
+            "unit": "s",
+            "range": 0,
+            "group": "General"
+          },
+          {
+            "name": "startup",
+            "value": 0.0604099148,
+            "unit": "s",
+            "range": 0.0005728667662102254,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 35.80812072753906,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size alloc_benchmarks",
+            "value": 29.78369140625,
             "unit": "MB",
             "range": 0,
             "group": "File Size"
