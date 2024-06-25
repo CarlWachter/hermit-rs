@@ -27,8 +27,6 @@ jobs:
     - uses: mkroening/rust-toolchain-toml@main
     - name: Download loader  
       run: gh release download --repo hermit-os/loader --pattern hermit-loader-x86_64
-    - name: Build dev profile
-      run: HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit
     - name: Install uhyve
       run: cargo +stable install --locked uhyve
     - name: Check KVM availability
@@ -40,6 +38,7 @@ jobs:
       uses: CarlWachter/hermit-bench@main
       with: 
         benchmark-file: /benches/bench.json
+        build-command: "HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit"
     - name: Store benchmark result
       uses: CarlWachter/github-action-benchmark@v1
       with:
