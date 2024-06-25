@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719297793133,
+  "lastUpdate": 1719300474977,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -739,6 +739,114 @@ window.BENCHMARK_DATA = {
           {
             "name": "Size rusty_demo",
             "value": 37547536,
+            "unit": "bytes",
+            "range": 0,
+            "group": "File Size"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "57cee59fc3eb16519e054125413f15f420ff1d17",
+          "message": "bench(alloc): size and alloc tests",
+          "timestamp": "2024-06-25T09:18:15+02:00",
+          "tree_id": "835701c6505929697d18b56ca2e5f1d6f9d8440d",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/57cee59fc3eb16519e054125413f15f420ff1d17"
+        },
+        "date": 1719300474252,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 1,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 5,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 19589000,
+            "unit": "ns",
+            "range": 48.05670688757864,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 18252750,
+            "unit": "ns",
+            "range": 68.38597763653242,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 19238500,
+            "unit": "ns",
+            "range": 35.65522454258653,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 17986000,
+            "unit": "ns",
+            "range": 81.83699410958005,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.9487636008749007,
+            "unit": "x",
+            "range": 0.18489566866541457,
+            "group": "Demo"
+          },
+          {
+            "name": "Laplace 1000 Iterations",
+            "value": 207.5,
+            "unit": "ms",
+            "range": 0.6601729505118752,
+            "group": "Demo"
+          },
+          {
+            "name": "startup",
+            "value": 0.6316158002,
+            "unit": "s",
+            "range": 0.028463187526228933,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 37547536,
+            "unit": "bytes",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size alloc_benchmarks",
+            "value": 31230464,
             "unit": "bytes",
             "range": 0,
             "group": "File Size"
