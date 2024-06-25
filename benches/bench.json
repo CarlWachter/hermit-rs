@@ -2,13 +2,14 @@
     {
       "name": "rusty_demo",
       "command": "qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/rusty_demo",
-      "itterations": 5,
+      "iterations": 5,
       "group": "Demo"
     },
     {
        "name": "startup",
        "command": "qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/startup_benchmark",
        "external_time": true,
+       "iterations": 5,
        "group": "General"
     },
     {
