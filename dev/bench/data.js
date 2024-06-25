@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719297497095,
+  "lastUpdate": 1719297793133,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -633,6 +633,107 @@ window.BENCHMARK_DATA = {
             "value": 0.6400092308,
             "unit": "s",
             "range": 0.01868898994965568,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 37547536,
+            "unit": "bytes",
+            "range": 0,
+            "group": "File Size"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "1b42bebd608ba2bb6aa060986b646277230b3735",
+          "message": "Run: More itterations on startup benchmark",
+          "timestamp": "2024-06-25T08:09:37+02:00",
+          "tree_id": "2d09846ba3ba3ceb6953fcdc4132c5f4e76818a8",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/1b42bebd608ba2bb6aa060986b646277230b3735"
+        },
+        "date": 1719297792402,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 1,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 5,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 19592250,
+            "unit": "ns",
+            "range": 73.2759029041893,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 18256750,
+            "unit": "ns",
+            "range": 39.48242045735656,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 19187250,
+            "unit": "ns",
+            "range": 71.68284395216429,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 17944750,
+            "unit": "ns",
+            "range": 25.22789391466762,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.9515048822878491,
+            "unit": "x",
+            "range": 0.20028235682608386,
+            "group": "Demo"
+          },
+          {
+            "name": "Laplace 1000 Iterations",
+            "value": 204,
+            "unit": "ms",
+            "range": 0.4670134329257045,
+            "group": "Demo"
+          },
+          {
+            "name": "startup",
+            "value": 0.645226547,
+            "unit": "s",
+            "range": 0.002855587770160321,
             "group": "General"
           },
           {
