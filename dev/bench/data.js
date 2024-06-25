@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1719321495843,
+  "lastUpdate": 1719323501682,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -1575,6 +1575,233 @@ window.BENCHMARK_DATA = {
             "unit": "MB",
             "range": 0,
             "group": "File Size"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "committer": {
+            "email": "carlwachter@web.de",
+            "name": "CarlWachter",
+            "username": "CarlWachter"
+          },
+          "distinct": true,
+          "id": "f0b1bdd152f004d97b39d1752b8a6135dab1c122",
+          "message": "bench(micro): mem speed and scheduler benches",
+          "timestamp": "2024-06-25T15:34:53+02:00",
+          "tree_id": "6649f035fc948c0d8e7d49ed245f12a6e87abcfe",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/f0b1bdd152f004d97b39d1752b8a6135dab1c122"
+        },
+        "date": 1719323500916,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 141.09593669,
+            "unit": "s",
+            "range": 0,
+            "group": "General"
+          },
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 1,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 5,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 19773000,
+            "unit": "ns",
+            "range": 333.28995197743984,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 18414750,
+            "unit": "ns",
+            "range": 326.3757422454359,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 19369500,
+            "unit": "ns",
+            "range": 333.80923262541984,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 18101000,
+            "unit": "ns",
+            "range": 339.80885250703824,
+            "group": "Demo"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 0.950708724410849,
+            "unit": "x",
+            "range": 0.1998060401267779,
+            "group": "Demo"
+          },
+          {
+            "name": "Laplace 1000 Iterations",
+            "value": 204.75,
+            "unit": "ms",
+            "range": 1.1120698596335723,
+            "group": "Demo"
+          },
+          {
+            "name": "startup",
+            "value": 0.6490341502,
+            "unit": "s",
+            "range": 0.02859828954279197,
+            "group": "General"
+          },
+          {
+            "name": "Size rusty_demo",
+            "value": 35.80812072753906,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size alloc_benchmarks",
+            "value": 29.78369140625,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Size micro_benchmarks",
+            "value": 29.773696899414062,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size"
+          },
+          {
+            "name": "Scheduling time (1 thread)",
+            "value": 2045.905646,
+            "unit": "ticks",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Scheduling time (2 threads)",
+            "value": 60627.640196,
+            "unit": "ticks",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Time for syscall (getpid)",
+            "value": 326.075082,
+            "unit": "ticks",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_builtin speed, block size 4096",
+            "value": 9148.126463700233,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_builtin speed, block size 1048576",
+            "value": 6826.917169013988,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_builtin speed, block size 16777216",
+            "value": 6718.076748988299,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_builtin speed, block size 4096",
+            "value": 46.781437125748496,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_builtin speed, block size 1048576",
+            "value": 58.54483876019595,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_builtin speed, block size 16777216",
+            "value": 58.52086316502912,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_rust speed, block size 4096",
+            "value": 6802.721088435374,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_rust speed, block size 1048576",
+            "value": 6783.892326061,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memcpy_rust speed, block size 16777216",
+            "value": 6761.428081225035,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_rust speed, block size 4096",
+            "value": 9036.144578313253,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_rust speed, block size 1048576",
+            "value": 28204.76660555634,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
+          },
+          {
+            "name": "Memset_rust speed, block size 16777216",
+            "value": 10257.797689302848,
+            "unit": "MByte/s",
+            "range": 0,
+            "group": "Micro"
           }
         ]
       }
