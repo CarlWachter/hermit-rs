@@ -6,12 +6,19 @@
       "group": "Demo"
     },
     {
-       "name": "startup",
+       "name": "startup, 1 core",
        "command": "sudo qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/startup_benchmark",
        "external_time": true,
        "iterations": 5,
        "group": "General"
     },
+    {
+        "name": "startup, 4 cores",
+        "command": "sudo qemu-system-x86_64 -display none -smp 4 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/startup_benchmark",
+        "external_time": true,
+        "iterations": 5,
+        "group": "General"
+     },
     {
         "name": "Size rusty_demo",
         "path": "target/x86_64-unknown-hermit/debug/rusty_demo",
@@ -28,15 +35,20 @@
         "group": "File Size"
     },
     {
+        "name": "Size mutex test",
+        "path": "target/x86_64-unknown-hermit/debug/mutex",
+        "group": "File Size"
+    },
+    {
         "name": "Micro Benchmarks",
-        "command": "sudo qemu-system-x86_64 -display none -smp 1 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/micro_benchmarks",
-        "iterations": 1,
+        "command": "sudo qemu-system-x86_64 -display none -smp 4 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/micro_benchmarks",
+        "iterations": 2,
         "group": "Micro"
     },
     {
         "name": "Allocation Benchmarks",
-        "command": "sudo qemu-system-x86_64 -display none -smp 1 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/alloc_benchmarks",
-        "iterations": 1,
+        "command": "qemu-system-x86_64 -display none -smp 1 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/alloc_benchmarks",
+        "iterations": 5,
         "group": "Allocations"
     },
     {
