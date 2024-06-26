@@ -38,5 +38,17 @@
         "command": "sudo qemu-system-x86_64 -display none -smp 1 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/alloc_benchmarks",
         "iterations": 1,
         "group": "Allocations"
+    },
+    {
+        "name": "Mutex Stress Test",
+        "command": "sudo qemu-system-x86_64 -display none -smp 2 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/mutex",
+        "iterations": 2,
+        "group": "Mutex"
+    },
+    {
+        "name": "Pi Multithreaded Benchmark",
+        "command": "sudo qemu-system-x86_64 -display none -smp 4 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/multithreaded_benchmark",
+        "iterations": 5,
+        "group": "General"
     }
 ]
