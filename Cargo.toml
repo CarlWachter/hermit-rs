@@ -23,7 +23,8 @@ members = [
     "examples/wasmtime",
     "hermit",
     "hermit-abi", 
-    "benches/startup",
+    "benches/startup", 
+    "benches/multithreaded",
 ]
 
 [patch.crates-io]
