@@ -6,38 +6,44 @@
       "group": "Demo"
     },
     {
-       "name": "startup, 1 core",
+       "name": "1 core",
        "command": "sudo qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/startup_benchmark",
        "external_time": true,
        "iterations": 5,
-       "group": "General"
+       "group": "General",
+       "plot_group": "Startup Time"
     },
     {
-        "name": "startup, 4 cores",
+        "name": "4 cores",
         "command": "sudo qemu-system-x86_64 -display none -smp 4 -m 128M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/startup_benchmark",
         "external_time": true,
         "iterations": 5,
-        "group": "General"
+        "group": "General",
+        "plot_group": "Startup Time"
      },
     {
-        "name": "Size rusty_demo",
+        "name": "rusty_demo",
         "path": "target/x86_64-unknown-hermit/debug/rusty_demo",
-        "group": "File Size"
+        "group": "File Size",
+        "plot_group": "Benchmark File Size"
     },
     {
-        "name": "Size alloc_benchmarks",
+        "name": "alloc_benchmarks",
         "path": "target/x86_64-unknown-hermit/debug/alloc_benchmarks",
-        "group": "File Size"
+        "group": "File Size",
+        "plot_group": "Benchmark File Size"
     },
     {
-        "name": "Size micro_benchmarks",
+        "name": "micro_benchmarks",
         "path": "target/x86_64-unknown-hermit/debug/micro_benchmarks",
-        "group": "File Size"
+        "group": "File Size",
+        "plot_group": "Benchmark File Size"
     },
     {
-        "name": "Size mutex test",
+        "name": "mutex test",
         "path": "target/x86_64-unknown-hermit/debug/mutex",
-        "group": "File Size"
+        "group": "File Size",
+        "plot_group": "Benchmark File Size"
     },
     {
         "name": "Micro Benchmarks",
@@ -61,6 +67,7 @@
         "name": "Pi Multithreaded Benchmark",
         "command": "sudo qemu-system-x86_64 -display none -smp 4 -m 512M -serial stdio -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand -kernel hermit-loader-x86_64 -initrd target/x86_64-unknown-hermit/debug/multithreaded_benchmark",
         "iterations": 5,
-        "group": "General"
+        "group": "General",
+        "plot_group": "Multithreaded Pi Efficiency"
     }
 ]
