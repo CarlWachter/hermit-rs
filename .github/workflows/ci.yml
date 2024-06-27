@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - test
+      - run
 
 env:
   GH_TOKEN: ${{ github.token }}
