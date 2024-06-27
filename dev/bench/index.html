@@ -270,19 +270,25 @@
           const renderedNames = new Set();
 
           groupData.forEach(({ name, benches, plot_group }) => {
-            // Extract the name from the unique name
-            const regex = /^(.*?)-&&-/;
-            name = name.match(regex)[1];
 
             if ((!renderedGroups.has(plot_group) || (!renderedNames.has(name)) && plot_group === "none") ) {
+              renderedNames.add(name);   
+
+              // Extract the name from the unique name
+              const regex = /^(.*?)-&&-/;
+              name = name.match(regex)[1];
+
               // Render the graph for this plot group
               const chartInstance = renderGraph(tabContent, name, benches, plot_group);
-              renderedGroups.set(plot_group, chartInstance);
-              if (!(plot_group === "none")){
-                renderedNames.add(name);
-              }
+              renderedGroups.set(plot_group, chartInstance);   
               
-            } else if (!(plot_group === "none")) {
+            } else if (!(plot_group === "none") && !renderedNames.has(name)) {
+              renderedNames.add(name);   
+
+              // Extract the name from the unique name
+              const regex = /^(.*?)-&&-/;
+              name = name.match(regex)[1];
+
               // Update the existing chart for this plot group
               const chartInstance = renderedGroups.get(plot_group);
               renderGraph(tabContent, name, benches, plot_group, chartInstance);
