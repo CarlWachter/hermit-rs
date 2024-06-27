@@ -187,9 +187,9 @@
             const { commit, date, tool, benches } = entry;
             for (const bench of benches) {
               const result = { commit, date, tool, bench };
-              const arr = map.get(bench.name);
+              const arr = map.get(bench.name+"-&&-"+bench.plot_group);
               if (arr === undefined) {
-                map.set(bench.name, [result]);
+                map.set(bench.name+"-&&-"+bench.plot_group, [result]);
               } else {
                 arr.push(result);
               }
@@ -270,7 +270,11 @@
           const renderedNames = new Set();
 
           groupData.forEach(({ name, benches, plot_group }) => {
-            if ((!renderedGroups.has(plot_group)) && !renderedNames.has(name)) {
+            // Extract the name from the unique name
+            const regex = /^(.*?)-&&-/;
+            name = name.match(regex)[1];
+
+            if ((!renderedGroups.has(plot_group) || (!renderedNames.has(name)) && plot_group === "none") ) {
               // Render the graph for this plot group
               const chartInstance = renderGraph(tabContent, name, benches, plot_group);
               renderedGroups.set(plot_group, chartInstance);
@@ -278,7 +282,7 @@
                 renderedNames.add(name);
               }
               
-            } else if (!(plot_group === "none") && !renderedNames.has(name)) {
+            } else if (!(plot_group === "none")) {
               // Update the existing chart for this plot group
               const chartInstance = renderedGroups.get(plot_group);
               renderGraph(tabContent, name, benches, plot_group, chartInstance);
