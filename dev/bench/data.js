@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1720000724841,
+  "lastUpdate": 1720076304637,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -732,6 +732,60 @@ window.BENCHMARK_DATA = {
             "range": 0.39317234822921865,
             "group": "General",
             "plot_group": "Multithreaded Pi Efficiency"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Martin Kröning",
+            "username": "CarlWachter",
+            "email": "mkroening@posteo.net"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "CarlWachter",
+            "email": "noreply@github.com"
+          },
+          "id": "c783a0a7cacdbbb6962cce6d54bb8b0b59afdc88",
+          "message": "Merge pull request #1263 from hermit-os/release-0.8.0\n\nchore: release version 0.8.0",
+          "timestamp": "2024-06-07T14:29:11Z",
+          "url": "https://github.com/CarlWachter/hermit-rs/commit/c783a0a7cacdbbb6962cce6d54bb8b0b59afdc88"
+        },
+        "date": 1720076303868,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 0.423584311,
+            "unit": "s",
+            "range": 0,
+            "group": "General",
+            "plot_group": "none"
+          },
+          {
+            "name": "rusty_demo",
+            "value": 35.810028076171875,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "alloc_benchmarks",
+            "value": 29.78429412841797,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "micro_benchmarks",
+            "value": 29.77513885498047,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
           }
         ]
       }
