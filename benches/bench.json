@@ -77,5 +77,33 @@
         "iterations": 5,
         "group": "General",
         "plot_group": "Multithreaded Pi Efficiency"
+    },
+    {
+        "name": "Netbench TCP BW - Client",
+        "command": "parallel ::: 'cargo run --manifest-path ./Cargo.toml --bin server-bw --release --target x86_64-unknown-linux-gnu -- --address 10.0.5.3 --bytes 1048576 --rounds 1000' 'sleep 10 && sudo qemu-system-x86_64 -display none -serial stdio -kernel hermit-loader-x86_64 -cpu host -enable-kvm -device isa-debug-exit,iobase=0xf4,iosize=0x04 -initrd target/x86_64-unknown-hermit/release/client-bw -smp 1 -m 1024M -netdev user,id=u1,hostfwd=tcp::9975-:9975,hostfwd=udp::9975-:9975,net=192.168.76.0/24,dhcpstart=192.168.76.9 -device virtio-net-pci,netdev=u1,disable-legacy=on,packed=on,mq=on -append '\\''-- --nonblocking --address 127.0.0.1 --bytes 1048576 --rounds 1000'\\'''",
+        "iterations": 5,
+        "group": "Networking",
+        "plot_group": "Netbench Bandwidth"
+    },
+    {
+        "name": "Netbench TCP BW - Server",
+        "command": "parallel ::: 'sleep 10 && cargo run --manifest-path ./Cargo.toml --bin client-bw --release --target x86_64-unknown-linux-gnu -- --nonblocking --address 127.0.0.1 --bytes 1048576 --rounds 1010' 'sudo qemu-system-x86_64 -display none -serial stdio -kernel hermit-loader-x86_64 -cpu host -enable-kvm -device isa-debug-exit,iobase=0xf4,iosize=0x04 -initrd target/x86_64-unknown-hermit/release/server-bw -smp 1 -m 1024M -netdev user,id=u1,hostfwd=tcp::7878-:7878,hostfwd=udp::9975-:9975,net=192.168.76.0/24,dhcpstart=192.168.76.9 -device virtio-net-pci,netdev=u1,disable-legacy=on,packed=on,mq=on -append '\\''-- --address 10.0.5.3 --bytes 1048576 --rounds 1000'\\'''",
+        "iterations": 5,
+        "group": "Networking",
+        "plot_group": "Netbench Bandwidth"
+    },
+    {
+        "name": "Netbench TCP Latency - Client",
+        "command": "parallel --halt now,done=1 ::: 'cargo run --manifest-path ./Cargo.toml --bin server-latency --release --target x86_64-unknown-linux-gnu -- --address 10.0.5.3 --bytes 1048576 --rounds 255' 'sleep 10 && sudo qemu-system-x86_64 -display none -serial stdio -kernel hermit-loader-x86_64 -cpu host -enable-kvm -device isa-debug-exit,iobase=0xf4,iosize=0x04 -initrd target/x86_64-unknown-hermit/release/client-latency -smp 1 -m 1024M -netdev user,id=u1,hostfwd=tcp::9975-:9975,hostfwd=udp::9975-:9975,net=192.168.76.0/24,dhcpstart=192.168.76.9 -device virtio-net-pci,netdev=u1,disable-legacy=on,packed=on,mq=on -append '\\''-- --nonblocking --address 127.0.0.1 --bytes 1048576 --rounds 250'\\'''",
+        "iterations": 5,
+        "group": "Networking",
+        "plot_group": "Netbench Latency"
+    },
+    {
+        "name": "Netbench TCP Latency - Server",
+        "command": "parallel ::: 'sleep 10 && cargo run --manifest-path ./Cargo.toml --bin client-latency --release --target x86_64-unknown-linux-gnu -- --nonblocking --address 127.0.0.1 --bytes 1048576 --rounds 250' 'sudo qemu-system-x86_64 -display none -serial stdio -kernel hermit-loader-x86_64 -cpu host -enable-kvm -device isa-debug-exit,iobase=0xf4,iosize=0x04 -initrd target/x86_64-unknown-hermit/release/server-latency -smp 1 -m 1024M -netdev user,id=u1,hostfwd=tcp::7878-:7878,hostfwd=udp::9975-:9975,net=192.168.76.0/24,dhcpstart=192.168.76.9 -device virtio-net-pci,netdev=u1,disable-legacy=on,packed=on,mq=on -append '\\''-- --address 10.0.5.3 --bytes 1048576 --rounds 250'\\'''",
+        "iterations": 5,
+        "group": "Networking",
+        "plot_group": "Netbench Latency"
     }
 ]
