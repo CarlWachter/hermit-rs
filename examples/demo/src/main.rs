@@ -4,7 +4,7 @@ use std::{env, f64, hint, io};
 use hermit as _;
 
 mod fs;
-mod laplace;
+//mod laplace;
 mod matmul;
 mod pi;
 mod thread;
@@ -18,7 +18,7 @@ fn main() -> io::Result<()> {
 	//fs::fs()?;
 	pi::pi();
 	matmul::matmul();
-	laplace::laplace();
+	//laplace::laplace(); temporary disabled, wasm bug
 	Ok(())
 }
 
