@@ -1,7 +1,8 @@
 //use std::cell::Cell;
-use std::time::{Duration, Instant};
 //use std::{io, thread};
 use std::thread;
+use std::time::{Duration, Instant};
+
 use hermit_bench_output::log_benchmark_data;
 
 pub fn sleep() {

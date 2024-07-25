@@ -4,9 +4,8 @@
 
 use std::time::Instant;
 
-use rayon::prelude::*;
-
 use hermit_bench_output::log_benchmark_data;
+use rayon::prelude::*;
 
 // TODO: Investigate other cache patterns for row-major order that may be more
 // parallelizable.

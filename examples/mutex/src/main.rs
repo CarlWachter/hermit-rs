@@ -1,3 +1,4 @@
+use std::hint::black_box;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
@@ -83,7 +84,7 @@ fn main() {
 
 	let mut i = 1;
 	while i <= available_parallelism {
-		mutex_stress_test(i);
+		black_box(mutex_stress_test(black_box(i)));
 		i *= 2;
 	}
 }

@@ -1,3 +1,4 @@
+use std::hint::black_box;
 use std::time::Instant;
 use std::{f64, hint};
 
@@ -38,13 +39,17 @@ fn calculate_pi(mode: Mode) {
 
 	//eprintln!("{elapsed:?}");
 
-	log_benchmark_data(&format!("Pi-Calculation-{mode:?}"), "ms", elapsed.as_millis() as f64);
+	log_benchmark_data(
+		&format!("Pi-Calculation-{mode:?}"),
+		"ms",
+		elapsed.as_millis() as f64,
+	);
 
 	assert!((mypi - f64::consts::PI).abs() < 1e-10);
 }
 
 pub fn pi() {
 	//eprintln!();
-	calculate_pi(Mode::Sequential);
-	calculate_pi(Mode::Parallel);
+	black_box(calculate_pi(black_box(Mode::Sequential)));
+	black_box(calculate_pi(black_box(Mode::Parallel)));
 }
