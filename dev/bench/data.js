@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1722207915791,
+  "lastUpdate": 1722209352663,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -7164,6 +7164,444 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max UDP Server Latency",
             "value": 2162688,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Martin Kröning",
+            "username": "mkroening",
+            "email": "mkroening@posteo.net"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "cbcf65a591eed712c8dd12af24cebd7f73882be1",
+          "message": "Merge pull request #1300 from hermit-os/split-fix\n\nfix(virtqueue/split): fix off-by-one error",
+          "timestamp": "2024-06-29T10:01:25Z",
+          "url": "https://github.com/hermit-os/kernel/commit/cbcf65a591eed712c8dd12af24cebd7f73882be1"
+        },
+        "date": 1722209351914,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 247.47071462,
+            "unit": "s",
+            "range": 0,
+            "group": "General",
+            "plot_group": "none"
+          },
+          {
+            "name": "Sleep-Timing",
+            "value": 100,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Pi-Calculation-Sequential",
+            "value": 14.666666666666666,
+            "unit": "ms",
+            "range": 0.35785530706483565,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Pi-Calculation-Parallel",
+            "value": 8,
+            "unit": "ms",
+            "range": 0,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Matmul-seq row-major",
+            "value": 58000,
+            "unit": "ns",
+            "range": 20.598741929536352,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Matmul-seq z-order",
+            "value": 32622222.222222224,
+            "unit": "ns",
+            "range": 146.0920895446895,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Matmul-par z-order",
+            "value": 19520444.444444444,
+            "unit": "ns",
+            "range": 82.74767840569855,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Matmul-par strassen",
+            "value": 15600777.777777778,
+            "unit": "ns",
+            "range": 203.4436687468838,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "Matmul-Speedup",
+            "value": 1.6712658099981212,
+            "unit": "x",
+            "range": 0.3092882973811928,
+            "group": "Demo",
+            "plot_group": "none"
+          },
+          {
+            "name": "1 core",
+            "value": 0.6057206707,
+            "unit": "s",
+            "range": 0.028838995447209557,
+            "group": "General",
+            "plot_group": "Startup Time"
+          },
+          {
+            "name": "2 cores",
+            "value": 0.6194759299999999,
+            "unit": "s",
+            "range": 0.029395578842900484,
+            "group": "General",
+            "plot_group": "Startup Time"
+          },
+          {
+            "name": "4 cores",
+            "value": 0.6438022913000001,
+            "unit": "s",
+            "range": 0.031860376925911524,
+            "group": "General",
+            "plot_group": "Startup Time"
+          },
+          {
+            "name": "rusty_demo",
+            "value": 4.326972961425781,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "alloc_benchmarks",
+            "value": 4.133415222167969,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "micro_benchmarks",
+            "value": 4.1414031982421875,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "mutex test",
+            "value": 4.142677307128906,
+            "unit": "MB",
+            "range": 0,
+            "group": "File Size",
+            "plot_group": "Benchmark File Size"
+          },
+          {
+            "name": "1 thread",
+            "value": 128.06857499999998,
+            "unit": "ticks",
+            "range": 0.2901324876862732,
+            "group": "Micro",
+            "plot_group": "Scheduling time"
+          },
+          {
+            "name": "2 threads",
+            "value": 64.777962375,
+            "unit": "ticks",
+            "range": 0.3240155941808074,
+            "group": "Micro",
+            "plot_group": "Scheduling time"
+          },
+          {
+            "name": "Time for syscall (getpid)",
+            "value": 34.8120235,
+            "unit": "ticks",
+            "range": 0.2401077140920777,
+            "group": "Micro",
+            "plot_group": "none"
+          },
+          {
+            "name": "(built_in) block size 4096",
+            "value": 17614.250480554572,
+            "unit": "MByte/s",
+            "range": 30.544725693565002,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 1048576",
+            "value": 21425.940917719705,
+            "unit": "MByte/s",
+            "range": 40.15761164598137,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 16777216",
+            "value": 7969.567794723815,
+            "unit": "MByte/s",
+            "range": 15.338990894650502,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 4096",
+            "value": 17614.250480554572,
+            "unit": "MByte/s",
+            "range": 30.544725693565002,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(built_in) block size 1048576",
+            "value": 21425.940917719705,
+            "unit": "MByte/s",
+            "range": 40.15761164598137,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(built_in) block size 16777216",
+            "value": 7969.567794723815,
+            "unit": "MByte/s",
+            "range": 15.338990894650502,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 4096",
+            "value": 16217.276709892225,
+            "unit": "MByte/s",
+            "range": 8.928080679367092,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 1048576",
+            "value": 21434.386755759733,
+            "unit": "MByte/s",
+            "range": null,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 16777216",
+            "value": 7947.388131646854,
+            "unit": "MByte/s",
+            "range": 15.071015784733724,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 4096",
+            "value": 16217.276709892225,
+            "unit": "MByte/s",
+            "range": 8.928080679367092,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 1048576",
+            "value": 21434.386755759733,
+            "unit": "MByte/s",
+            "range": null,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 16777216",
+            "value": 7947.388131646854,
+            "unit": "MByte/s",
+            "range": 15.071015784733724,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "Allocation success",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Deallocation success",
+            "value": 70.05563417470044,
+            "unit": "%",
+            "range": 0.3331762388849928,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Pre-fail Allocations",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time",
+            "value": 24375.810978428206,
+            "unit": "Ticks",
+            "range": 2.3434240498615586,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time (no fail)",
+            "value": 24375.810978428206,
+            "unit": "Ticks",
+            "range": 2.3434240498615586,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Deallocation time",
+            "value": 4763.701671807562,
+            "unit": "Ticks",
+            "range": 2.2786407322076543,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "1 Threads",
+            "value": 27,
+            "unit": "ns",
+            "range": 0,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "2 Threads",
+            "value": 46.44444444444444,
+            "unit": "ns",
+            "range": 1.3812688104766344,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "2 Threads",
+            "value": 99.57601459627026,
+            "unit": "%",
+            "range": 0.443297568610583,
+            "group": "General",
+            "plot_group": "Multithreaded Pi Efficiency"
+          },
+          {
+            "name": "4 Threads",
+            "value": 74.13650348922175,
+            "unit": "%",
+            "range": 0.47288721999951916,
+            "group": "General",
+            "plot_group": "Multithreaded Pi Efficiency"
+          },
+          {
+            "name": "8 Threads",
+            "value": 49.03994922519056,
+            "unit": "%",
+            "range": 0.3295907284548796,
+            "group": "General",
+            "plot_group": "Multithreaded Pi Efficiency"
+          },
+          {
+            "name": "TCP client",
+            "value": 389.13288322172536,
+            "unit": "Mbit/s",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "TCP server",
+            "value": 105.68723906646356,
+            "unit": "Mbit/s",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "95th percentile TCP Client Latency",
+            "value": 188743680,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "Max TCP Client Latency",
+            "value": 197132288,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "95th percentile TCP Server Latency",
+            "value": 102760448,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "Max TCP Server Latency",
+            "value": 115343360,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "UDP server",
+            "value": 119.59648520281567,
+            "unit": "Mbit/s",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1472B"
+          },
+          {
+            "name": "UDP client",
+            "value": 117.3793022709449,
+            "unit": "Mbit/s",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "95th percentile UDP Server Latency",
+            "value": 217088,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          },
+          {
+            "name": "Max UDP Server Latency",
+            "value": 770048,
             "unit": "ns",
             "range": 0,
             "group": "Networking",
