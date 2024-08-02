@@ -21,6 +21,8 @@ members = [
     "examples/mutex",
     "hermit",
     "hermit-abi",
+    "benches/startup", 
+    "benches/multithreaded",
 ]
 
 [patch.crates-io]
