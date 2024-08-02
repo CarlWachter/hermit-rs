@@ -1,17 +1,17 @@
 #![allow(unused_imports)]
 
-#[cfg(target_os = "hermit")]
-use hermit as _;
+use std::io::{self, Write};
 
 use clap::Parser;
+#[cfg(target_os = "hermit")]
+use hermit as _;
 use rust_tcp_io_perf::config::Config;
 use rust_tcp_io_perf::connection;
-use std::io::{self, Write};
 
 fn main() {
 	let args = Config::parse();
 
-	println!("Connecting to the server {}...", args.address);
+	println!("Connecting to the server {}:{}...", args.address, args.port);
 	let n_rounds = args.n_rounds;
 	let n_bytes = args.n_bytes;
 

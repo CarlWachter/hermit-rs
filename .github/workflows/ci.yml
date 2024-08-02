@@ -3,74 +3,32 @@ name: CI
 on:
   pull_request:
   merge_group:
+  push:
+    branches:
+      - test
+      - run
+      - hermit-0.6.0
 
 env:
+  GH_TOKEN: ${{ github.token }}
   RUSTFLAGS: -Dwarnings
   RUSTDOCFLAGS: -Dwarnings
 
 jobs:
-  clippy:
-    name: Clippy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - uses: mkroening/rust-toolchain-toml@main
-      - run: rustup component add clippy
-      - name: Install NASM
-        run: |
-          sudo apt-get update
-          sudo apt-get install nasm
-      - name: Clippy
-        run: |
-          cargo clippy --all-targets
-          cargo clippy -Zbuild-std=std,panic_abort --target=x86_64-unknown-hermit --all-targets
-
-  format:
-    name: Format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: mkroening/rust-toolchain-toml@main
-      - run: rustup component add rustfmt
-      - name: Format
-        run: cargo fmt -- --check
-
-  check-docs:
-    name: Check docs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Install NASM
-        run: |
-          sudo apt-get update
-          sudo apt-get install nasm
-      - uses: mkroening/rust-toolchain-toml@main
-      - name: Check docs
-        run: cargo doc --no-deps --document-private-items
-
   kvm:
-    name: KVM
+    name: Bench
     runs-on: [self-hosted]
     steps:
-    - name: Install NASM
+    - name: Install QEMU
       run: |
         sudo apt-get update
-        sudo apt-get install -y nasm qemu-kvm
-    - uses: actions/checkout@v3
+        sudo apt-get install -y qemu-kvm
+    - uses: actions/checkout@v4
       with:
          submodules: true
     - uses: mkroening/rust-toolchain-toml@main
-    - name: Download loader
-      uses: dsaltares/fetch-gh-release-asset@1.1.1
-      with:
-        repo: hermitcore/rusty-loader
-        file: rusty-loader-x86_64
-    - name: Build dev profile
-      run: cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo
+    - name: Download loader  
+      run: gh release download v0.4.6 --repo hermit-os/loader --pattern hermit-loader-x86_64
     - name: Install uhyve
       run: cargo +stable install --locked uhyve
     - name: Check KVM availability
@@ -78,113 +36,20 @@ jobs:
       run: |
          lscpu
          kvm-ok
-    - name: Test debug version (Uhyve)
-      run: uhyve --verbose -c 1 target/x86_64-unknown-hermit/debug/rusty_demo
-      env:
-        RUST_LOG: debug
-    - name: Test debug profile (Qemu)
-      run: |
-        qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-          -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-          -kernel rusty-loader-x86_64 \
-          -initrd target/x86_64-unknown-hermit/debug/rusty_demo
-    - name: Build release profile
-      run: cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo --release
-    - name: Test release version (Uhyve)
-      run: uhyve --verbose -c 1 target/x86_64-unknown-hermit/release/rusty_demo
-      env:
-        RUST_LOG: debug
-    - name: Test release profile (Qemu)
-      run: |
-        qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-          -enable-kvm -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-          -kernel rusty-loader-x86_64 \
-          -initrd target/x86_64-unknown-hermit/release/rusty_demo
-
-  run-aarch64:
-    name: QEMU (aarch64)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install CURL, QEMU
-        run: |
-          sudo apt-get update
-          sudo apt-get install qemu-system-aarch64 curl
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Download loader
-        uses: dsaltares/fetch-gh-release-asset@1.1.1
-        with:
-          repo: hermitcore/rusty-loader
-          file: rusty-loader-aarch64
-      - uses: mkroening/rust-toolchain-toml@main
-      - uses: Swatinem/rust-cache@v2
-      - name: Build dev profile
-        run: cargo build -Zbuild-std=std,panic_abort --target aarch64-unknown-hermit --package rusty_demo
-      - name: Test dev profile
-        run: |
-          qemu-system-aarch64 -semihosting \
-            -kernel rusty-loader-aarch64 -machine virt,gic-version=max \
-            -m 512M -cpu max -smp 1 -display none -serial stdio -kernel rusty-loader-aarch64 \
-            -device guest-loader,addr=0x48000000,initrd=target/aarch64-unknown-hermit/debug/rusty_demo
-      - name: Build release profile
-        run: cargo build -Zbuild-std=std,panic_abort --target aarch64-unknown-hermit --package rusty_demo --release
-      - name: Test release profile
-        run: |
-          qemu-system-aarch64 -semihosting \
-            -kernel rusty-loader-aarch64 -machine virt,gic-version=max \
-            -m 512M -cpu max -smp 1 -display none -serial stdio -kernel rusty-loader-aarch64 \
-            -device guest-loader,addr=0x48000000,initrd=target/aarch64-unknown-hermit/release/rusty_demo
-  
-  qemu-x86_64:
-    name: QEMU (x86_64)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install CURL, QEMU, NASM
-        run: |
-          sudo apt-get update
-          sudo apt-get install qemu-system-x86 nasm curl
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Download loader
-        uses: dsaltares/fetch-gh-release-asset@1.1.1
-        with:
-          repo: hermitcore/rusty-loader
-          file: rusty-loader-x86_64
-      - uses: mkroening/rust-toolchain-toml@main
-      - uses: Swatinem/rust-cache@v2
-      - name: Build dev profile
-        run: cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo
-      - name: Test dev profile
-        run: |
-          qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-            -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-            -kernel rusty-loader-x86_64 \
-            -initrd target/x86_64-unknown-hermit/debug/rusty_demo
-      - name: Build release profile
-        run:
-          cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package rusty_demo --release
-      - name: Test release profile
-        run: |
-          qemu-system-x86_64 -display none -smp 1 -m 128M -serial stdio \
-            -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-            -kernel rusty-loader-x86_64 \
-            -initrd target/x86_64-unknown-hermit/release/rusty_demo
-      - name: Build httpd with DHCP support
-        run:
-          cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package httpd --features rtl8139,ci,dhcpv4
-      - name: Test httpd with DHCP support
-        run: |
-          qemu-system-x86_64 -smp 1 -cpu qemu64,apic,fsgsbase,rdtscp,xsave,xsaveopt,fxsr,rdrand \
-            -device isa-debug-exit,iobase=0xf4,iosize=0x04 -display none -m 128M -serial stdio \
-            -kernel rusty-loader-x86_64 \
-            -initrd target/x86_64-unknown-hermit/debug/httpd \
-            -netdev user,id=u1,hostfwd=tcp::9975-:9975,net=192.168.76.0/24,dhcpstart=192.168.76.9 \
-            -device rtl8139,netdev=u1 &
-            sleep 5
-            curl http://127.0.0.1:9975/help
-            sleep 1
-      - name: Build httpd without DHCP support
-        run:
-          cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --package httpd
+    - name: Run benchmarks
+      uses: CarlWachter/hermit-bench@main
+      with: 
+        benchmark-file: /benches/bench.json
+        build-command: "HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --release"
+    - name: Store benchmark result
+      uses: CarlWachter/github-action-benchmark@v1
+      with:
+        # What benchmark tool the output.txt came from
+        tool: 'customSmallerIsBetter'
+        # Where the output from the benchmark tool is stored
+        output-file-path: results.json
+        # Where the previous data file is stored
+        #external-data-json-path: ./cache/benchmark-data.json
+        # Publish to Pages on
+        github-token: ${{ secrets.PAGES_TOKEN }}
+        auto-push: true

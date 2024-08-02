@@ -4,11 +4,12 @@ members = [
     "hermit-abi",
     "hermit",
     "benches/alloc",
-    "benches/netbench",
     "benches/micro",
-    "examples/tokio",
     "examples/hello_world",
     "examples/httpd",
     "examples/demo",
+    "examples/mutex",
+    "benches/multithreaded",
+    "benches/startup", 
 ]
 exclude = ["target", "kernel"]
