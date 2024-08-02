@@ -1,30 +1,15 @@
 [package]
 name = "mioudp"
 authors = ["Stefan Lankes <slankes@eonerc.rwth-aachen.de>"]
-version = "0.1.0"
 edition = "2021"
-publish = false
 
 [dependencies]
-mio = { git = "https://github.com/hermit-os/mio.git", branch = "hermit", features = ["net", "os-poll"] }
+mio = { version = "0.8", features = ["net", "os-poll"] }
 env_logger = { version = "0.11.2", default-features = false }
 log = { version = "0.4.8" }
 
-[target.'cfg(target_os = "hermit")'.dependencies.hermit]
-path = "../../hermit"
-default-features = false
+[target.'cfg(target_os = "hermit")'.dependencies]
+hermit = { path = "../../hermit", default-features = false }
 
 [features]
-default = ["pci", "pci-ids", "acpi", "udp"]
-vga = ["hermit/vga"]
-dhcpv4 = ["hermit/dhcpv4"]
-pci = ["hermit/pci"]
-pci-ids = ["hermit/pci-ids"]
-acpi = ["hermit/acpi"]
-fsgsbase = ["hermit/fsgsbase"]
-smp = ["hermit/smp"]
-tcp = ["hermit/tcp"]
-udp = ["hermit/udp"]
-instrument = ["hermit/instrument"]
-trace = ["hermit/trace"]
-rtl8139 = ["hermit/rtl8139"]
+default = ["hermit/acpi", "hermit/pci", "hermit/pci-ids", "hermit/udp"]

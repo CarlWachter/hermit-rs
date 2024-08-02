@@ -10,10 +10,9 @@ members = [
     "examples/httpd",
     "examples/testtcp",
     "examples/testudp",
-    "examples/miotcp",
-    "examples/mioudp",
-    "examples/tokio",
-    "examples/webserver",
+    "examples/mutex",
     "hermit",
     "hermit-abi",
+    "benches/startup", 
+    "benches/multithreaded",
 ]

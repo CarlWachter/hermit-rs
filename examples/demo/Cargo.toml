@@ -1,41 +1,16 @@
 [package]
 name = "rusty_demo"
-version = "0.1.0"
 authors = ["Stefan Lankes <slankes@eonerc.rwth-aachen.de>"]
 edition = "2021"
-publish = false
-
-[[bin]]
-name = "rusty_demo"
-path = "src/main.rs"
-
-[[bin]]
-name = "pi_sequential"
-path = "src/pi_sequential.rs"
-
-[[bin]]
-name = "matrix_multiplcation"
-path = "src/matrix_multiplication.rs"
 
 [dependencies]
 rayon = "1.5"
-num_cpus = "1.13"
+serde_json = "1.0"
+hermit_bench_output = "0.1.0"
 
-[target.'cfg(target_os = "hermit")'.dependencies.hermit]
-path = "../../hermit"
-default-features = false
-
-[target.'cfg(target_arch = "aarch64")'.dependencies.aarch64]
-version = "0.0.10"
-default-features = false
+[target.'cfg(target_os = "hermit")'.dependencies]
+hermit = { path = "../../hermit", default-features = false }
 
 [features]
-default = ["pci", "acpi", "smp", "fs"]
-vga = ["hermit/vga"]
-pci = ["hermit/pci"]
+default = ["hermit/acpi", "hermit/pci", "hermit/smp"]
 fs = ["hermit/fs"]
-acpi = ["hermit/acpi"]
-pci-ids = ["hermit/pci-ids"]
-fsgsbase = ["hermit/fsgsbase"]
-smp = ["hermit/smp"]
-instrument = ["hermit/instrument"]
