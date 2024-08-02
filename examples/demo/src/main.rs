@@ -4,21 +4,21 @@ use std::{env, f64, hint, io};
 use hermit as _;
 
 mod fs;
-mod laplace;
+//mod laplace;
 mod matmul;
 mod pi;
 mod thread;
 
 fn main() -> io::Result<()> {
-	hello();
-	print_env();
-	arithmetic();
+	//hello();
+	//print_env();
+	//arithmetic();
 	thread::sleep();
-	thread::spawn()?;
-	fs::fs()?;
+	//thread::spawn()?;
+	//fs::fs()?;
 	pi::pi();
 	matmul::matmul();
-	laplace::laplace();
+	//laplace::laplace(); temporary disabled, wasm bug
 	Ok(())
 }
 

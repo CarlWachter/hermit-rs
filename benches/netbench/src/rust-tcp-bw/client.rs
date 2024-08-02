@@ -11,7 +11,7 @@ use rust_tcp_io_perf::connection;
 fn main() {
 	let args = Config::parse();
 
-	println!("Connecting to the server {}...", args.address);
+	println!("Connecting to the server {}:{}...", args.address, args.port);
 	let n_rounds = args.n_rounds;
 	let n_bytes = args.n_bytes;
 

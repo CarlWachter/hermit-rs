@@ -17,8 +17,11 @@ members = [
     "examples/tls",
     "examples/tokio",
     "examples/webserver",
+    "examples/mutex",
     "hermit",
     "hermit-abi",
+    "benches/startup", 
+    "benches/multithreaded",
 ]
 
 [patch.crates-io]
