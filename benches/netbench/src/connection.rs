@@ -1,11 +1,9 @@
-use crate::config::Config;
 use std::io;
 use std::io::ErrorKind::WouldBlock;
 use std::io::{Read, Write};
-use std::net::Shutdown;
-use std::net::TcpListener;
-use std::net::TcpStream;
-use std::net::ToSocketAddrs;
+use std::net::{Shutdown, TcpListener, TcpStream, ToSocketAddrs};
+
+use crate::config::Config;
 
 /// Sends first n_bytes from wbuf using the given stream.
 /// Make sure wbuf.len >= n_bytes
@@ -39,7 +37,7 @@ pub fn receive_message(n_bytes: usize, stream: &mut TcpStream, rbuf: &mut [u8]) 
 }
 
 /// Setup the streams and eventually pins the thread according to the configuration.
-pub fn setup(config: &Config, stream: &mut TcpStream) {
+pub fn setup(config: &Config, stream: &TcpStream) {
 	if config.no_delay {
 		stream
 			.set_nodelay(true)

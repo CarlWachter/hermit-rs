@@ -3,10 +3,13 @@ resolver = "2"
 members = [
     "hermit-abi",
     "hermit-sys",
-    "benches/netbench",
+    "benches/alloc",
     "benches/micro",
     "examples/hello_world",
     "examples/httpd",
     "examples/demo",
+    "benches/startup", 
+    "benches/multithreaded",
+    "examples/mutex",
 ]
 exclude = ["target", "libhermit-rs"]

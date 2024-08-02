@@ -1,0 +1,13 @@
+[package]
+name = "startup_benchmark"
+authors = ["Carl Wachter"]
+edition = "2021"
+version = "0.1.0"
+
+
+[dependencies]
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
+
+[features]

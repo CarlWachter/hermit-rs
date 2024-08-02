@@ -1,47 +1,38 @@
 [package]
 
 name = "rust-tcp-io-perf"
-version = "0.0.0"
 authors = ["Lorenzo Martini <lmartini@student.ethz.ch>"]
 edition = "2021"
 readme = "README.md"
+version = "0.1.0"
 
 description = "A Rust program to measure bandwidth or latency over a Rust TCP connection"
 
 [dependencies]
 bytes = "1.1"
-clap = {version ="4.1", features = ["derive"] }
+clap = { version ="4.1", features = ["derive"] }
 core_affinity = "0.8"
 hdrhist = "0.5"
+hermit_bench_output = "0.1.0"
 
-[target.'cfg(target_os = "hermit")'.dependencies.hermit-sys]
-path = "../../hermit-sys"
-default-features = false
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
 
 [features]
-default = ["pci", "acpi", "tcp", "smp"]
-vga = ["hermit-sys/vga"]
-dhcpv4 = ["hermit-sys/dhcpv4"]
-pci = ["hermit-sys/pci"]
-pci-ids = ["hermit-sys/pci-ids"]
-acpi = ["hermit-sys/acpi"]
-fsgsbase = ["hermit-sys/fsgsbase"]
-smp = ["hermit-sys/smp"]
-tcp = ["hermit-sys/tcp"]
-instrument = ["hermit-sys/instrument"]
+default = ["libhermit-rs/acpi", "libhermit-rs/pci", "libhermit-rs/smp", "libhermit-rs/tcp", "libhermit-rs/pci-ids"]
 
 [[bin]]
-name = "server-bw"
+name = "tcp-server-bw"
 path = "src/rust-tcp-bw/server.rs"
 
 [[bin]]
-name = "client-bw"
+name = "tcp-client-bw"
 path = "src/rust-tcp-bw/client.rs"
 
 [[bin]]
-name = "server-latency"
+name = "tcp-server-latency"
 path = "src/rust-tcp-latency/server.rs"
 
 [[bin]]
-name = "client-latency"
+name = "tcp-client-latency"
 path = "src/rust-tcp-latency/client.rs"

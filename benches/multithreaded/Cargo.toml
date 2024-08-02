@@ -1,0 +1,14 @@
+[package]
+name = "multithreaded_benchmark"
+authors = ["Carl Wachter"]
+edition = "2021"
+version = "0.1.0"
+
+
+[dependencies]
+hermit_bench_output = "0.1.0"
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
+
+[features]

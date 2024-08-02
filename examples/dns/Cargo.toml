@@ -1,0 +1,16 @@
+[package]
+name = "dns"
+authors = ["Stefan Lankes <slankes@eonerc.rwth-aachen.de>"]
+edition = "2021"
+version = "0.1.0"
+
+[dependencies]
+time = "0.3"
+tiny_http = "0.12"
+hermit-abi = { path = "../../libhermit-rs-abi" }
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
+
+[features]
+default = ["libhermit-rs/acpi", "libhermit-rs/pci", "libhermit-rs/pci-ids", "libhermit-rs/tcp", "libhermit-rs/dns"]

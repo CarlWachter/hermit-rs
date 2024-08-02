@@ -1,0 +1,10 @@
+[package]
+name = "testudp"
+edition = "2021"
+version = "0.1.0"
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
+
+[features]
+default = ["libhermit-rs/acpi", "libhermit-rs/pci", "libhermit-rs/pci-ids", "libhermit-rs/udp"]

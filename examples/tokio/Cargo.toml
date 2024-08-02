@@ -1,0 +1,14 @@
+[package]
+name = "tokio-minimal"
+authors = ["Stefan Lankes <slankes@eonerc.rwth-aachen.de>"]
+edition = "2021"
+version = "0.1.0"
+
+[dependencies]
+tokio = { version = "1.19", default-features = false, features = ["rt", "rt-multi-thread", "macros"] }
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+libhermit-rs =  { path = "../../libhermit-rs", default-features = false }
+
+[features]
+default = ["libhermit-rs/acpi", "libhermit-rs/dhcpv4", "libhermit-rs/pci", "libhermit-rs/pci-ids", "libhermit-rs/tcp"]
