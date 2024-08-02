@@ -1,16 +1,19 @@
-use std::cell::Cell;
+//use std::cell::Cell;
+//use std::{io, thread};
+use std::thread;
 use std::time::{Duration, Instant};
-use std::{io, thread};
+
+use hermit_bench_output::log_benchmark_data;
 
 pub fn sleep() {
-	eprintln!();
+	//eprintln!();
 	let duration = Duration::from_millis(100);
 
 	let now = Instant::now();
 	thread::sleep(duration);
 	let elapsed = now.elapsed();
 
-	eprintln!("Measured time for {duration:?} sleep: {elapsed:?}");
+	//eprintln!("Measured time for {duration:?} sleep: {elapsed:?}");
 	assert!(elapsed >= duration);
 	let expected_delay = if cfg!(debug_assertions) {
 		Duration::from_millis(20)
@@ -18,9 +21,11 @@ pub fn sleep() {
 		Duration::from_millis(5)
 	};
 	assert!(elapsed <= duration + expected_delay);
+
+	log_benchmark_data("Sleep-Timing", "ms", elapsed.as_millis() as f64);
 }
 
-pub fn spawn() -> io::Result<()> {
+/*pub fn spawn() -> io::Result<()> {
 	eprintln!();
 
 	let available_parallelism = thread::available_parallelism()?;
@@ -61,3 +66,4 @@ pub fn spawn() -> io::Result<()> {
 
 	Ok(())
 }
+*/

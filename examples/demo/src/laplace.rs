@@ -3,18 +3,22 @@ use std::vec;
 
 use rayon::prelude::*;
 
+use hermit_bench_output::log_benchmark_data;
+
 const SIZE: usize = if cfg!(debug_assertions) { 16 } else { 64 };
 
 pub fn laplace() {
-	eprintln!();
+	//eprintln!();
 
 	let matrix = matrix_setup(SIZE, SIZE);
 
-	eprintln!("Laplace iterations");
+	//eprintln!("Laplace iterations");
 	let now = Instant::now();
-	let (i, residual) = compute(matrix, SIZE, SIZE);
+	let (_i, residual) = compute(matrix, SIZE, SIZE);
 	let elapsed = now.elapsed();
-	eprintln!("{i} iterations: {elapsed:?} (residual: {residual})");
+
+	log_benchmark_data("Laplace 1000 Iterations", "ms", elapsed.as_millis() as f64);
+	//eprintln!("{i} iterations: {elapsed:?} (residual: {residual})");
 
 	assert!(residual < 0.001);
 }
