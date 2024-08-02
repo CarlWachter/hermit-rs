@@ -3,16 +3,14 @@ resolver = "2"
 members = [
     "benches/alloc",
     "benches/micro",
-    "benches/netbench",
     "examples/demo",
     "examples/fuse_test",
     "examples/hello_world",
     "examples/httpd",
-    "examples/testtcp",
-    "examples/testudp",
-    "examples/tokio",
-    "examples/webserver",
+    "examples/mutex",
     "hermit",
     "hermit-abi",
+    "benches/startup", 
+    "benches/multithreaded",
 ]
 exclude = ["target", "kernel"]
