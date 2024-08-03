@@ -15,7 +15,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "742526984ee0094b0626ad6afddb17b11bc9caff",
+          "id": "v0.9.1",
           "message": "Merge pull request #1263 from hermit-os/release-0.8.0\n\nchore: release version 0.8.0",
           "timestamp": "2024-06-07T14:29:11Z",
           "url": "https://github.com/hermit-os/kernel/commit/742526984ee0094b0626ad6afddb17b11bc9caff"
@@ -469,7 +469,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "4ce7439440eb19a13a88f65d61ef23debecac6f5",
+          "id": "v0.9.0",
           "message": "Merge pull request #1134 from mkroening/release-0.7.0\n\nchore: release version 0.7.0",
           "timestamp": "2024-04-11T14:49:40Z",
           "url": "https://github.com/hermit-os/kernel/commit/4ce7439440eb19a13a88f65d61ef23debecac6f5"
@@ -923,7 +923,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "1d9d19ca5d136bc16b0909982a783c2ec981ecef",
+          "id": "v0.8.2",
           "message": "Merge pull request #1083 from mkroening/release-0.6.9\n\nchore: release version 0.6.9",
           "timestamp": "2024-02-29T08:29:38Z",
           "url": "https://github.com/hermit-os/kernel/commit/1d9d19ca5d136bc16b0909982a783c2ec981ecef"
@@ -1377,7 +1377,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "244d5b379b240684bdd67d7cbb2dc4fc39ee6c14",
+          "id": "v0.8.0",
           "message": "Merge pull request #1009 from mkroening/release-0.6.7\n\nchore: release version 0.6.7",
           "timestamp": "2023-12-19T09:20:27Z",
           "url": "https://github.com/hermit-os/kernel/commit/244d5b379b240684bdd67d7cbb2dc4fc39ee6c14"
@@ -1735,7 +1735,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "7d9cd982c8ec7e6a198a567f699b9141514a5e51",
+          "id": "v0.7.0",
           "message": "Merge pull request #926 from mkroening/rm-nasm\n\nfeat: remove NASM dependency",
           "timestamp": "2023-09-21T18:05:27Z",
           "url": "https://github.com/hermit-os/kernel/commit/7d9cd982c8ec7e6a198a567f699b9141514a5e51"
