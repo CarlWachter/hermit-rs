@@ -2093,7 +2093,7 @@ window.BENCHMARK_DATA = {
             "username": "web-flow",
             "email": "noreply@github.com"
           },
-          "id": "0aedc555e72cdd3f18c96ae6a22aaa9e4f770447",
+          "id": "v0.6.0",
           "message": "Merge pull request #860 from hermitcore/rename-crate\n\nfeat: rename crate to hermit-kernel",
           "timestamp": "2023-08-25T16:03:27Z",
           "url": "https://github.com/hermit-os/kernel/commit/0aedc555e72cdd3f18c96ae6a22aaa9e4f770447"
