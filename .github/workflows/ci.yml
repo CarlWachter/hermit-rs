@@ -44,7 +44,7 @@ jobs:
       uses: CarlWachter/github-action-benchmark@v1
       with:
         # What benchmark tool the output.txt came from
-        tool: 'customSmallerIsBetter'
+        tool: 'hermit-bench'
         # Where the output from the benchmark tool is stored
         output-file-path: results.json
         # Where the previous data file is stored
