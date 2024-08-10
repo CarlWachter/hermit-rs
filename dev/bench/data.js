@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1723312402323,
+  "lastUpdate": 1723313323063,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -938,6 +938,100 @@ window.BENCHMARK_DATA = {
             "value": 42.939999999999976,
             "unit": "ns",
             "range": 19.671207385414856,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Martin Kröning",
+            "username": "mkroening",
+            "email": "mkroening@posteo.net"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "cbcf65a591eed712c8dd12af24cebd7f73882be1",
+          "message": "Merge pull request #1300 from hermit-os/split-fix\n\nfix(virtqueue/split): fix off-by-one error",
+          "timestamp": "2024-06-29T10:01:25Z",
+          "url": "https://github.com/hermit-os/kernel/commit/cbcf65a591eed712c8dd12af24cebd7f73882be1"
+        },
+        "date": 1723313322308,
+        "tool": "hermit-bench",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 242.542625166,
+            "unit": "s",
+            "range": 0,
+            "group": "General",
+            "plot_group": "none"
+          },
+          {
+            "name": "Allocation success",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Deallocation success",
+            "value": 70.00409380284448,
+            "unit": "%",
+            "range": 0.3804261192716029,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Pre-fail Allocations",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time",
+            "value": 18413.085672377405,
+            "unit": "Ticks",
+            "range": 241.00473205562207,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time (no fail)",
+            "value": 18413.085672377405,
+            "unit": "Ticks",
+            "range": 241.00473205562207,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Deallocation time",
+            "value": 1208.7692056154194,
+            "unit": "Ticks",
+            "range": 42.13939937604706,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "1 Threads",
+            "value": 26.999999999999964,
+            "unit": "ns",
+            "range": 3.552713678800501e-14,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "2 Threads",
+            "value": 46.329999999999984,
+            "unit": "ns",
+            "range": 22.36785863689236,
             "group": "Mutex",
             "plot_group": "Mutex Stress Test Average Time per Iteration"
           }
