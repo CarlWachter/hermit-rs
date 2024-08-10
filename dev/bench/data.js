@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1723245902969,
+  "lastUpdate": 1723250380313,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -2950,6 +2950,252 @@ window.BENCHMARK_DATA = {
             "value": 1477836.8,
             "unit": "ns",
             "range": 943889.0512373581,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Martin Kröning",
+            "username": "mkroening",
+            "email": "mkroening@posteo.net"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "cbcf65a591eed712c8dd12af24cebd7f73882be1",
+          "message": "Merge pull request #1300 from hermit-os/split-fix\n\nfix(virtqueue/split): fix off-by-one error",
+          "timestamp": "2024-06-29T10:01:25Z",
+          "url": "https://github.com/hermit-os/kernel/commit/cbcf65a591eed712c8dd12af24cebd7f73882be1"
+        },
+        "date": 1723250379540,
+        "tool": "hermit-bench",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 245.23173275,
+            "unit": "s",
+            "range": 0,
+            "group": "General",
+            "plot_group": "none"
+          },
+          {
+            "name": "1 thread",
+            "value": 128.02310895999997,
+            "unit": "ticks",
+            "range": 0.1579965630314735,
+            "group": "Micro",
+            "plot_group": "Scheduling time"
+          },
+          {
+            "name": "2 threads",
+            "value": 64.71539612000001,
+            "unit": "ticks",
+            "range": 0.31549576526986095,
+            "group": "Micro",
+            "plot_group": "Scheduling time"
+          },
+          {
+            "name": "Time for syscall (getpid)",
+            "value": 34.97338328,
+            "unit": "ticks",
+            "range": 0.36334032489356555,
+            "group": "Micro",
+            "plot_group": "none"
+          },
+          {
+            "name": "(built_in) block size 4096",
+            "value": 36159.55638714867,
+            "unit": "MByte/s",
+            "range": 25567.299569188897,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 1048576",
+            "value": 36355.799425697354,
+            "unit": "MByte/s",
+            "range": 29009.505391052233,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 16777216",
+            "value": 16320.0035265673,
+            "unit": "MByte/s",
+            "range": 11512.687400583683,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(built_in) block size 4096",
+            "value": 36030.611613973124,
+            "unit": "MByte/s",
+            "range": 25470.44328874351,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(built_in) block size 1048576",
+            "value": 36746.761068601176,
+            "unit": "MByte/s",
+            "range": 29271.087911238264,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(built_in) block size 16777216",
+            "value": 16363.27997105629,
+            "unit": "MByte/s",
+            "range": 11544.669261359484,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 4096",
+            "value": 31426.4311207884,
+            "unit": "MByte/s",
+            "range": 21942.158072019745,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 1048576",
+            "value": 36194.0032778471,
+            "unit": "MByte/s",
+            "range": 28929.078022346494,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 16777216",
+            "value": 16317.636599290548,
+            "unit": "MByte/s",
+            "range": 11513.716380480666,
+            "group": "Micro",
+            "plot_group": "Memcpy speed"
+          },
+          {
+            "name": "(rust) block size 4096",
+            "value": 31400.174556647362,
+            "unit": "MByte/s",
+            "range": 21922.815439068898,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 1048576",
+            "value": 36581.949542993716,
+            "unit": "MByte/s",
+            "range": 29188.50753096586,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "(rust) block size 16777216",
+            "value": 16361.091575925368,
+            "unit": "MByte/s",
+            "range": 11545.818809542165,
+            "group": "Micro",
+            "plot_group": "Memset speed"
+          },
+          {
+            "name": "TCP client",
+            "value": 417.13920455225303,
+            "unit": "Mbit/s",
+            "range": 17.445566218441243,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "TCP server",
+            "value": 106.7405279053227,
+            "unit": "Mbit/s",
+            "range": 12.953986481979884,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "95th percentile TCP Client Latency",
+            "value": 185388236.8,
+            "unit": "ns",
+            "range": 6710886.4,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "Max TCP Client Latency",
+            "value": 190421401.60000002,
+            "unit": "ns",
+            "range": 3355443.2,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "95th percentile TCP Server Latency",
+            "value": 104438169.60000001,
+            "unit": "ns",
+            "range": 5033164.800000001,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "Max TCP Server Latency",
+            "value": 126667980.79999997,
+            "unit": "ns",
+            "range": 27104421.949468177,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "UDP server",
+            "value": 128.19495385464896,
+            "unit": "Mbit/s",
+            "range": 3.656272410905609,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1472B"
+          },
+          {
+            "name": "UDP client",
+            "value": 123.86957860857568,
+            "unit": "Mbit/s",
+            "range": 6.241723412181996,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "95th percentile UDP Client Latency",
+            "value": 234291.19999999995,
+            "unit": "ns",
+            "range": 14858.942175000211,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          },
+          {
+            "name": "Max UDP Client Latency",
+            "value": 767590.4,
+            "unit": "ns",
+            "range": 446325.6916045054,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          },
+          {
+            "name": "95th percentile UDP Server Latency",
+            "value": 206438.39999999997,
+            "unit": "ns",
+            "range": 8232.858108822234,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          },
+          {
+            "name": "Max UDP Server Latency",
+            "value": 1161625.5999999999,
+            "unit": "ns",
+            "range": 563973.835793683,
             "group": "Networking",
             "plot_group": "Netbench Latency - 1000x1472B"
           }
