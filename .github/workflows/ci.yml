@@ -39,7 +39,7 @@ jobs:
       uses: CarlWachter/hermit-bench@main
       with: 
         benchmark-file: /benches/bench.json
-        build-command: "HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --release"
+        build-command: "cd ."
     - name: Store benchmark result
       uses: CarlWachter/github-action-benchmark@v1
       with:
