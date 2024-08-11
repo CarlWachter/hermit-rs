@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1723381962130,
+  "lastUpdate": 1723382594619,
   "repoUrl": "https://github.com/CarlWachter/hermit-rs",
   "entries": {
     "Benchmark": [
@@ -598,6 +598,156 @@ window.BENCHMARK_DATA = {
             "value": 281258.6666666667,
             "unit": "ns",
             "range": 96601.55467808075,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Martin Kröning",
+            "username": "mkroening",
+            "email": "mkroening@posteo.net"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "cbcf65a591eed712c8dd12af24cebd7f73882be1",
+          "message": "Merge pull request #1300 from hermit-os/split-fix\n\nfix(virtqueue/split): fix off-by-one error",
+          "timestamp": "2024-06-29T10:01:25Z",
+          "url": "https://github.com/hermit-os/kernel/commit/cbcf65a591eed712c8dd12af24cebd7f73882be1"
+        },
+        "date": 1723382593847,
+        "tool": "hermit-bench",
+        "benches": [
+          {
+            "name": "Build",
+            "value": 0.002083634,
+            "unit": "s",
+            "range": 0,
+            "group": "General",
+            "plot_group": "none"
+          },
+          {
+            "name": "Allocation success",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Deallocation success",
+            "value": 69.90183698263726,
+            "unit": "%",
+            "range": 0.24850664736462502,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Pre-fail Allocations",
+            "value": 100,
+            "unit": "%",
+            "range": 0,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time",
+            "value": 5991.428432306982,
+            "unit": "Ticks",
+            "range": 119.59267474693964,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Allocation time (no fail)",
+            "value": 5991.428432306982,
+            "unit": "Ticks",
+            "range": 119.59267474693964,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "Average Deallocation time",
+            "value": 1793.5025439362144,
+            "unit": "Ticks",
+            "range": 14.693014693776428,
+            "group": "Allocations",
+            "plot_group": "none"
+          },
+          {
+            "name": "1 Threads",
+            "value": 26.000000000000007,
+            "unit": "ns",
+            "range": 7.105427357601002e-15,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "2 Threads",
+            "value": 69.49999999999999,
+            "unit": "ns",
+            "range": 14.430869689661813,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "4 Threads",
+            "value": 109.7,
+            "unit": "ns",
+            "range": 9.829038610159184,
+            "group": "Mutex",
+            "plot_group": "Mutex Stress Test Average Time per Iteration"
+          },
+          {
+            "name": "TCP client",
+            "value": 19141.80549158705,
+            "unit": "Mbit/s",
+            "range": 742.9853095656299,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1MB"
+          },
+          {
+            "name": "95th percentile TCP Server Latency",
+            "value": 835584,
+            "unit": "ns",
+            "range": 0,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "Max TCP Server Latency",
+            "value": 857429.3333333335,
+            "unit": "ns",
+            "range": 15446.983337280526,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 250x1MB"
+          },
+          {
+            "name": "UDP client",
+            "value": 398.01858487583945,
+            "unit": "Mbit/s",
+            "range": 7.282998909277478,
+            "group": "Networking",
+            "plot_group": "Netbench Bandwidth - 1000x1472B"
+          },
+          {
+            "name": "95th percentile UDP Server Latency",
+            "value": 68949.33333333333,
+            "unit": "ns",
+            "range": 1930.8729171600658,
+            "group": "Networking",
+            "plot_group": "Netbench Latency - 1000x1472B"
+          },
+          {
+            "name": "Max UDP Server Latency",
+            "value": 854698.6666666667,
+            "unit": "ns",
+            "range": 925105.7784063879,
             "group": "Networking",
             "plot_group": "Netbench Latency - 1000x1472B"
           }
