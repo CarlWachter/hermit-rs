@@ -20,7 +20,6 @@ members = [
     "examples/dns",
     "examples/mutex",
     "examples/fibonacci",
-    "examples/wasmtime",
     "hermit",
     "hermit-abi", 
     "benches/startup", 
