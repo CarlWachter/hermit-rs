@@ -5,8 +5,7 @@ on:
   merge_group:
   push:
     branches:
-      - test
-      - run
+      - feat/cb
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -124,12 +123,12 @@ jobs:
 
   benchmark:
     name: Bench
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
     - name: Install QEMU
       run: |
         sudo apt-get update
-        sudo apt-get install -y qemu-kvm
+        sudo apt-get install -y qemu-system qemu-system-x86 qemu-kvm
     - uses: actions/checkout@v4
       with:
          submodules: true
@@ -143,20 +142,20 @@ jobs:
       run: |
          lscpu
          kvm-ok
+    - name: Add wasm target
+      run: |
+         rustup component add llvm-tools
+         rustup target add wasm32-wasip1
+         rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
     - name: Run benchmarks
-      uses: CarlWachter/hermit-bench@main
+      uses: hermit-os/hermit-bench@main
       with: 
         benchmark-file: /benches/bench.json
         build-command: "HERMIT_LOG_LEVEL_FILTER=Off cargo build -Zbuild-std=std,panic_abort --target x86_64-unknown-hermit --release"
     - name: Store benchmark result
-      uses: CarlWachter/github-action-benchmark@v1
+      uses: hermit-os/github-action-benchmark@hermit-rs
       with:
-        # What benchmark tool the output.txt came from
         tool: 'hermit-bench'
-        # Where the output from the benchmark tool is stored
         output-file-path: results.json
-        # Where the previous data file is stored
-        #external-data-json-path: ./cache/benchmark-data.json
-        # Publish to Pages on
         github-token: ${{ secrets.PAGES_TOKEN }}
         auto-push: true
