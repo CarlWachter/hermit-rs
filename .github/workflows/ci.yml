@@ -157,5 +157,5 @@ jobs:
       with:
         tool: 'hermit-bench'
         output-file-path: results.json
-        github-token: ${{ secrets.PAGES_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         auto-push: true
